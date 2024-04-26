@@ -1,0 +1,37 @@
+---
+import Card from "../components/Card.astro";
+import Divider from "../components/Divider.astro";
+import Gallery from "../components/Gallery.astro";
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Sinh nhật Đình Sang">
+  <Hero>
+    <div class="container mx-auto flex justify-end items-center h-full">
+      <div class="bg-white/80 p-8 sm: w-full md:w-[50%] rounded mx-4 md:mx-0">
+        <h1 class="text-4xl leading-normal text-center font-serif">
+          Đình Sang tròn một tuổi
+        </h1>
+        <div>
+          <h2>Địa điểm</h2>
+          <p>Nguyên Đình Trần Phú</p>
+          <a
+            href="https://maps.app.goo.gl/1pWjRzNQU9puvtYa8"
+            class="text-xl hover:text-blue-700"
+            >MAC Plaza, Tầng 4, Số 10 Trần Phú, Hà Đông, Hà Nội</a
+          >
+        </div>
+      </div>
+    </div>
+  </Hero>
+  <div class="container mx-auto py-8">
+    <h2
+      class="font-serif text-4xl text-center leading-normal italic text-slate-700"
+    >
+      Gallery
+    </h2>
+    <Divider />
+    <Gallery numberOfImages={9} />
+  </div>
+</Layout>

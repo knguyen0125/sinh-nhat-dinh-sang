@@ -1,0 +1,36 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const images = await Astro.glob("/src/assets/gallery/*.{JPG,jpg}");
+
+type Props = {
+  numberOfImages?: number;
+};
+
+const { numberOfImages = 6 } = Astro.props;
+---
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+  {
+    Object.values(images).map((image, idx) => {
+      return (
+        <a
+          data-fslightbox
+          href={image.default.src}
+          class:list={[idx > numberOfImages - 1 ? "hidden" : ""]}
+        >
+          <Image
+            src={image.default}
+            alt="gallery image"
+            class="h-auto  aspect-square max-w-full rounded-lg object-cover"
+          />
+        </a>
+      );
+    })
+  }
+</div>
+
+<script>
+  import "fslightbox";
+</script>
